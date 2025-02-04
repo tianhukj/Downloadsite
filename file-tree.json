@@ -1,0 +1,7 @@
+{
+    "example1.txt": "files/1.txt",
+    "example2.pdf": "files/2.txt",
+    "病毒": {
+        "360": "files/病毒/360",
+        }
+}
