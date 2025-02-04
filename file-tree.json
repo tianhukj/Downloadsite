@@ -1,7 +1,13 @@
 {
-    "example1.txt": "files/1.txt",
-    "example2.pdf": "files/2.txt",
-    "病毒": {
-        "360": "files/病毒/360",
+    "example1.txt": "files/e1.txt",
+    "example2.pdf": "files/example2.pdf",
+    "subfolder1": {
+        "example3.jpg": "files/subfolder1/example3.jpg",
+        "example4.docx": "files/subfolder1/example4.docx"
+    },
+    "subfolder2": {
+        "subsubfolder1": {
+            "example5.png": "files/subfolder2/subsubfolder1/example5.png"
         }
+    }
 }
