@@ -18,20 +18,13 @@
     <div id="file-tree"></div>
 
     <script>
-        // Sample directory structure
-        const fileTree = {
-            "example1.txt": "files/example1.txt",
-            "example2.pdf": "files/example2.pdf",
-            "subfolder1": {
-                "example3.jpg": "files/subfolder1/example3.jpg",
-                "example4.docx": "files/subfolder1/example4.docx"
-            },
-            "subfolder2": {
-                "subsubfolder1": {
-                    "example5.png": "files/subfolder2/subsubfolder1/example5.png"
-                }
-            }
-        };
+        // Fetch the file tree from a JSON file
+        fetch('file-tree.json')
+            .then(response => response.json())
+            .then(data => {
+                const fileTreeContainer = document.getElementById('file-tree');
+                createFileTree(fileTreeContainer, data);
+            });
 
         function createFileTree(container, tree) {
             const ul = document.createElement('ul');
@@ -53,10 +46,6 @@
 
             container.appendChild(ul);
         }
-
-        // Populate the file tree
-        const fileTreeContainer = document.getElementById('file-tree');
-        createFileTree(fileTreeContainer, fileTree);
     </script>
 </body>
 </html>
