@@ -4,48 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>File Download Site</title>
-    <style>
-        ul {
-            list-style-type: none;
-        }
-        li {
-            margin: 5px 0;
-        }
-    </style>
 </head>
 <body>
     <h1>File Download Site</h1>
-    <div id="file-tree"></div>
+    <ul id="file-list">
+        <!-- This list will be populated with files -->
+    </ul>
 
     <script>
-        // Fetch the file tree from a JSON file
-        fetch('file-tree.json')
-            .then(response => response.json())
-            .then(data => {
-                const fileTreeContainer = document.getElementById('file-tree');
-                createFileTree(fileTreeContainer, data);
-            });
+        // List of files to download
+        const files = [
+            { name: 'Example File 1', url: 'files/example1.txt' },
+            { name: 'Example File 2', url: 'files/example2.pdf' },
+            // Add more files here
+        ];
 
-        function createFileTree(container, tree) {
-            const ul = document.createElement('ul');
-
-            for (const key in tree) {
-                const li = document.createElement('li');
-                if (typeof tree[key] === 'string') {
-                    const link = document.createElement('a');
-                    link.href = tree[key];
-                    link.textContent = key;
-                    link.download = key;
-                    li.appendChild(link);
-                } else {
-                    li.textContent = key;
-                    createFileTree(li, tree[key]);
-                }
-                ul.appendChild(li);
-            }
-
-            container.appendChild(ul);
-        }
+        // Populate the file list
+        const fileList = document.getElementById('file-list');
+        files.forEach(file => {
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = file.url;
+            link.textContent = file.name;
+            link.download = file.name;
+            listItem.appendChild(link);
+            fileList.appendChild(listItem);
+        });
     </script>
 </body>
 </html>
