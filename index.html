@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Download Site</title>
+</head>
+<body>
+    <h1>File Download Site</h1>
+    <ul id="file-list">
+        <!-- This list will be populated with files -->
+    </ul>
+
+    <script>
+        // List of files to download
+        const files = [
+            { name: '1', url: 'files/1.txt' },
+            { name: '2', url: 'files/2.txt },
+            // Add more files here
+        ];
+
+        // Populate the file list
+        const fileList = document.getElementById('file-list');
+        files.forEach(file => {
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = file.url;
+            link.textContent = file.name;
+            link.download = file.name;
+            listItem.appendChild(link);
+            fileList.appendChild(listItem);
+        });
+    </script>
+</body>
+</html>
